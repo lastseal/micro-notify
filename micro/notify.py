@@ -33,7 +33,7 @@ def listen(channel):
             conn.poll()
             
             for notify in conn.notifies:
-                handle(notify.channel, notify.payload)
+                handle(notify.payload)
 
             conn.notifies.clear()
 

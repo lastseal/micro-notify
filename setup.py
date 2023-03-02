@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(
-    name="micro-rest",
+    name="micro-notify",
     version="1.0.0",
-    description="Módulo que permite crear micro servicios REST/API",
+    description="Módulo que permite crear micro servicios PG Listen",
     author="Rodrigo Arriaza",
     author_email="hello@lastseal.com",
     url="https://www.lastseal.com",

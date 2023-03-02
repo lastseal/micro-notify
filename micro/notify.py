@@ -1,9 +1,10 @@
 
 # -*- coding: utf-8 -*-
 
+from micro import config
+
 import psycopg2
 import asyncio
-import json
 import os
 
 POSTGRES_USER = os.getenv("POSTGRES_USER")

@@ -5,6 +5,7 @@ from micro import config
 
 import psycopg2
 import asyncio
+import logging
 import os
 
 POSTGRES_USER = os.getenv("POSTGRES_USER")
@@ -34,7 +35,10 @@ def listen(channel):
             conn.poll()
             
             for notify in conn.notifies:
-                handle(notify.payload)
+                try:
+                    handle(notify.payload)
+                except Exception as ex:
+                    logging.error(ex)
 
             conn.notifies.clear()
 

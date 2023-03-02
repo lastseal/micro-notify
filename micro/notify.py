@@ -22,12 +22,16 @@ conn = psycopg2.connect(
     password=POSTGRES_PASSWORD
 )
 
+logging.debug("connection on %s", POSTGRES_DB)
+
 conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
 
 cursor = conn.cursor()
 
 def listen(channel):
     def decorator(handle):
+
+        logging.debug("listen on %s", channel)
         
         cursor.execute(f"LISTEN {channel};")
 
